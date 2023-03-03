@@ -1,0 +1,43 @@
+{
+    "name": "The Crimson Caravan",
+    "commander": "Lady Fiona Wachter",
+    "size": 1,
+    "powerdie": "d4",
+    "skills": {
+        "Diplomacy": 0,
+        "Espionage": 2,
+        "Lore": -1,
+        "Operations": 2
+    },
+    "defenses": {
+        "Communications": 14,
+        "Resolve": 10,
+        "Resources": 14
+    },
+    "officers": [{
+        "name": "Acquisitions Expert",
+        "proficiency": "You gain proficiency in the Arcana skill.",
+        "additionally": "If you are unable to cast spells of 1st level or higher (either because you have no spellcasting ability, you have expended all your spell slots, or you have used all your innate spells), you can cast the following spells using Intelligence as your spellcasting ability: At will: detect magix, identify. 3/day each: charm person, comprehend languages, unseen servant. 1/day each: dispel magic, glyph of warding."
+    }, {
+        "name": "Chief of Security",
+        "proficiency": "When a creature within 5 feet of you makes an attack against a target other than you, you can use your reaction to make a melee weapon attack against that creature. If the attack hits, it deals extra damage equal to your proficiency bonus."
+    }, {
+        "name": "Executive Manager",
+        "proficiency": "When a creature within 5 feet of you misses with an attack or fails a saving throw, you can use your reaction to roll a d4 and add the roll to the attack roll or saving throw."
+    }, {
+        "name": "Fixer",
+        "proficiency": "You gain proficiency in the Stealth skill.",
+        "additionally": "You can use a bonus action to take the Dash, Disengage, or Hide action."
+    }, {
+        "name": "Safety Officer",
+        "proficiency": "While you are not unconscious, you and friendly creatures within 10 feet of you have advantage on saving throws against being frightened.",
+        "additionally": "As a bonus action, choose an ally you can see within 30 feet of you. That ally regains hit points equal to 1d4 + your domain size. You can use this feature a number of times per day equal to your Wisdom modifier (minimum one)."
+    }],
+    "features": [{
+        "name": "Soldiers of Fortune (Special Unit)",
+        "description": "Make a DC 13 Operations test as a domain action. On a success, you muster the Soldiers of Fortune, a highly professional special unit of mercenaries."
+    }, {
+        "name": "Spared no Expense",
+        "description": "At the start of a battle, you can use a domain reaction to make a DC 14 Operations test. On a success, increase the levels of two of your domain’s defenses by 1."
+    }]
+}
