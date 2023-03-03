@@ -1,0 +1,266 @@
+<form class="{{cssClass}}" autocomplete="off">
+    <div class="flex-body">
+        <div class="flex-row">
+            <div class="flex-profileimg">
+                <img class="profile" src="{{actor.img}}" title="{{actor.name}}" data-edit="img" />
+            </div>
+            <div class="flex-block header-block">
+                <h1 class="charname">
+                    <input name="name" type="text" value="{{actor.name}}" placeholder="{{localize "mtds.DomainName"}}" />
+                </h1>
+                <h2 class="commander">
+                    <input name="system.details.background.value" type="text" value="{{system.details.background.value}}" placeholder="{{localize "mtds.DomainCommander" }}" />
+                </h2>
+                <!-- Size -->
+                <div class="flex-column">
+                    <h4 class="attribute-name box-title">{{localize "mtds.Size"}}</h4>
+                    <div class="attribute-value">
+                        <select class="actor-size" name="system.traits.size">
+                            {{#select system.traits.size}}
+                            <option value="1">1 - Tiny</option>
+                            <option value="2">2 - Small</option>
+                            <option value="3">3 - Medium</option>
+                            <option value="4">4 - Big</option>
+                            <option value="5">5 - Large</option>
+                            {{/select}}
+                        </select>
+                    </div>
+                </div>
+                
+                <!-- Power Die -->
+                <div class="flex-column">
+                    <h4 class="box-title">{{localize "mtds.PowerDie"}}</h4>
+                    <div class="attribute-value">
+                        <select class="actor-size" name="system.traits.di.value">
+                            {{#select system.traits.di.value }}
+                            <option value="1">d4</option>
+                            <option value="2">d6</option>
+                            <option value="3">d8</option>
+                            <option value="4">d12</option>
+                            <option value="5">d20</option>
+                            {{/select}}
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="flex-row navigation">
+            <nav class="sheet-navigation tabs" data-group="primary">
+                <a class="item active" data-tab="stats">{{localize "mtds.Stats"}}</a>
+                <a class="item" data-tab="action-log">{{localize "mtds.ActionLog"}}</a>
+            </nav>
+        </div>
+
+        <section class="sheet-body">
+            <div class="tab" data-group="primary" data-tab="stats">
+                <div class="flex-row">
+                    <!-- SKILLS -->
+                    <div class="flex-column">
+                        <h2>{{localize "mtds.Skills"}}</h2>
+                        <ul>
+                            <li class="skill-box">
+                                <div class="skill-value">
+                                    <input name="system.abilities.cha.value" type="text" value="{{numberFormat system.abilities.cha.value decimals=0 sign=true}}" />
+                                </div>
+                                <div class="skill-desc">
+                                    <h4 class="skill-name">{{localize "mtds.Diplomacy"}}</h4>
+                                    <p class="uses">{{localize "mtds.DiplomacyUses"}}</p>
+                                    <p>{{localize "mtds.DiplomacyDesc"}}</p>
+                                </div>
+                            </li>
+                            <li class="skill-box">
+                                <div class="skill-value">
+                                    <input name="system.abilities.dex.value" type="text" value="{{numberFormat system.abilities.dex.value decimals=0 sign=true}}" />
+                                </div>
+                                <div class="skill-desc">
+                                    <h4 class="skill-name">{{localize "mtds.Espionage"}}</h4>
+                                    <p class="uses">{{localize "mtds.EspionageUses"}}</p>
+                                    <p>{{localize "mtds.EspionageDesc"}}</p>
+                                </div>
+                            </li>
+                            <li class="skill-box">
+                                <div class="skill-value">
+                                    <input name="system.abilities.wis.value" type="text" value="{{numberFormat system.abilities.wis.value decimals=0 sign=true}}" />
+                                </div>
+                                <div class="skill-desc">
+                                    <h4 class="skill-name">{{localize "mtds.Lore"}}</h4>
+                                    <p class="uses">{{localize "mtds.LoreUses"}}</p>
+                                    <p>{{localize "mtds.LoreDesc"}}</p>
+                                </div>
+                            </li>
+                            <li class="skill-box">
+                                <div class="skill-value">
+                                    <input name="system.abilities.str.value" type="text" value="{{numberFormat system.abilities.str.value decimals=0 sign=true}}" />
+                                </div>
+                                <div class="skill-desc">
+                                    <h4 class="skill-name">{{localize "mtds.Operations"}}</h4>
+                                    <p class="uses">{{localize "mtds.OperationsUses"}}</p>
+                                    <p>{{localize "mtds.OperationsDesc"}}</p>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    
+                    <!-- DEFENSES -->
+                    <div class="flex-column">
+                        <h2>{{localize "mtds.Defenses"}}</h2>
+                        <ul>
+                            <li class="skill-box">
+                                <div class="skill-value">
+                                    <input name="system.traits.ci.value" type="text" value="{{numberFormat system.traits.ci.value decimals=0}}" />
+                                </div>
+                                <div class="skill-desc">
+                                    <h4 class="skill-name">{{localize "mtds.Communications"}}</h4>
+                                    <p class="uses">{{localize "mtds.CommunicationsUses"}}</p>
+                                    <p>{{localize "mtds.CommunicationsDesc"}}</p>
+                                </div>
+                            </li>
+                            <li class="skill-box">
+                                <div class="skill-value">
+                                    <input name="system.traits.dv.value" type="text" value="{{numberFormat system.traits.dv.value decimals=0 }}" />
+                                </div>
+                                <div class="skill-desc">
+                                    <h4 class="skill-name">{{localize "mtds.Resolve"}}</h4>
+                                    <p class="uses">{{localize "mtds.ResolveUses"}}</p>
+                                    <p>{{localize "mtds.ResolveDesc"}}</p>
+                                </div>
+                            </li>
+                            <li class="skill-box">
+                                <div class="skill-value">
+                                    <input name="system.traits.dr.value" type="text" value="{{numberFormat system.traits.dr.value decimals=0 }}" />
+                                </div>
+                                <div class="skill-desc">
+                                    <h4 class="skill-name">{{localize "mtds.Resources"}}</h4>
+                                    <p class="uses">{{localize "mtds.ResourcesUses"}}</p>
+                                    <p>{{localize "mtds.ResourcesDesc"}}</p>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- 
+                <div class="flex-row">
+                    <h4>Skills</h4>
+                </div>-->
+                
+                <div class="flex-row">
+                    <!-- Powers -->
+                    <div class="flex-column">
+                        <h2>{{localize "mtds.Powers"}}</h2>
+                        <div class="powers">
+                            <h3>Healthcare</h3>
+                            <p>As a <b>bonus action</b>, take a <i>power die</i> from your domain's pool. You immediately spend and roll a number of your Hit Dice equal to the number on the power die, <b>regaining hit points</b> equal to the total of Hit Dice rolled.</p>
+                            <h3>Well Fed</h3>
+                            <p>As an <b>action</b>, make a <b>DC 13 Operations</b> test. On a success, all officers gain <b>inspiration</b>.</p>
+                            <h3>Business Connections</h3>
+                            <p>Once per intrigue, you can make a <b>DC 13 Diplomacy</b> test as a <b>bonus action</b>. On a success, all of your officers begin the next combat with their <b>hit point</b> maximum and current hit points <b>increased</b> by 5 x your Domain Size ({{numberFormat system.traits.size}}).</p>
+                        </div>
+                    </div>
+                
+                    <!-- Relations -->
+                    <div class="flex-column">
+                        <h2>{{localize "mtds.Relations"}}</h2>
+                        <ul class="domains">
+                            <li class="">
+                                <span class="major">MAJOR</span>
+                                <span class="name">BM Vargas Vallakovich</span>
+                                <span class="standings">
+                                    <select name="system.currency.pp.value" class="standings-{{ system.currency.pp.value }}">
+                                        {{#select system.currency.pp.value }}
+                                        <option value="-2">{{localize "mtds.Hostile"}}</option>
+                                        <option value="-1">{{localize "mtds.Suspicious"}}</option>
+                                        <option value="0">{{localize "mtds.Neutral"}}</option>
+                                        <option value="1">{{localize "mtds.Friendly"}}</option>
+                                        <option value="2">{{localize "mtds.Allied"}}</option>
+                                        {{/select}}
+                                    </select>
+                                </span>
+                            </li>
+                            <li class="">
+                                <span class="minor">minor</span>
+                                <span class="name">Vistani</span>
+                                <span class="standings">
+                                    <select name="system.currency.gp.value" class="standings-{{ system.currency.gp.value }}">
+                                        {{#select system.currency.gp.value }}
+                                        <option value="-2">{{localize "mtds.Hostile"}}</option>
+                                        <option value="-1">{{localize "mtds.Suspicious"}}</option>
+                                        <option value="0">{{localize "mtds.Neutral"}}</option>
+                                        <option value="1">{{localize "mtds.Friendly"}}</option>
+                                        <option value="2">{{localize "mtds.Allied"}}</option>
+                                        {{/select}}
+                                    </select>
+                                </span>
+                            </li>
+                            <li class="">
+                                <span class="minor">minor</span>
+                                <span class="name">Church</span>
+                                <span class="standings">
+                                    <select name="system.currency.ep.value" class="standings-{{ system.currency.ep.value }}">
+                                        {{#select system.currency.ep.value }}
+                                        <option value="-2">{{localize "mtds.Hostile"}}</option>
+                                        <option value="-1">{{localize "mtds.Suspicious"}}</option>
+                                        <option value="0">{{localize "mtds.Neutral"}}</option>
+                                        <option value="1">{{localize "mtds.Friendly"}}</option>
+                                        <option value="2">{{localize "mtds.Allied"}}</option>
+                                        {{/select}}
+                                    </select>
+                                </span>
+                            </li>
+                            <li class="">
+                                <span class="minor">minor</span>
+                                <span class="name">Blue Water Inn</span>
+                                <span class="standings">
+                                    <select name="system.currency.sp.value" class="standings-{{ system.currency.sp.value }}">
+                                        {{#select system.currency.sp.value }}
+                                        <option value="-2">{{localize "mtds.Hostile"}}</option>
+                                        <option value="-1">{{localize "mtds.Suspicious"}}</option>
+                                        <option value="0">{{localize "mtds.Neutral"}}</option>
+                                        <option value="1">{{localize "mtds.Friendly"}}</option>
+                                        <option value="2">{{localize "mtds.Allied"}}</option>
+                                        {{/select}}
+                                    </select>
+                                </span>
+                            </li>
+                            <li class="">
+                                <span class="minor">minor</span>
+                                <span class="name">Assassins Cult</span>
+                                <span class="standings">
+                                    <select name="system.currency.cp.value" class="standings-{{ system.currency.cp.value }}">
+                                        {{#select system.currency.cp.value }}
+                                        <option value="-2">{{localize "mtds.Hostile"}}</option>
+                                        <option value="-1">{{localize "mtds.Suspicious"}}</option>
+                                        <option value="0">{{localize "mtds.Neutral"}}</option>
+                                        <option value="1">{{localize "mtds.Friendly"}}</option>
+                                        <option value="2">{{localize "mtds.Allied"}}</option>
+                                        {{/select}}
+                                    </select>
+                                </span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="tab" data-group="primary" data-tab="action-log">
+                <div class="flex-row">
+                    <h2>{{localize "mtds.ActionLog"}}</h2>
+                    <ol reversed class="action-log">
+                        <li>
+                            <h3><u>Lore</u> to figure out if Henrik went to Krezk</h3>
+                            <p class="uses">Yvaine rolls an 11, add (Yvaine's) History (+6) and (Domain) Lore (-1) -> 11+6-1 = <b>16</b></p>
+                            <blockquote>...</blockquote>
+                        </li>
+                        <li>
+                            <h3><u>Espionage</u> to find the 4th minor organization in Vallaki</h3>
+                            <p class="uses">Albert rolls an 8, add (Albert's) Stealth (+4) and (Domain) Espionage (+2) -> 8+4+2 = <b>14</b></p>
+                            <blockquote>Our spies are roaming through the streets looking for signs of a rumoured fourth "minor" organization. When one of our members stumbles unto a very recent murder. He notices a shadowy figure leaving the scene. In pursuit of the suspected offender he barely escapes a well laid ambush. After some more questioning and investigating it's confirmed: there's an <b>Assassins Cult</b> active in Vallaki.
+                            </blockquote>
+                        </li>
+                    </ol>
+                </div>
+            </div>
+        </section>
+    </div>
+</form>
