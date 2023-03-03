@@ -48,7 +48,7 @@ class MasterTomNLDomainSheet5E extends dnd5e.applications.actor.ActorSheet5eChar
     
     async getData() {
         const data = await super.getData();
-        data["domain"] = await this.getDomain(this.actor);
+        //data["domain"] = await this.getDomain(this.actor); <-- this needs some work
         return data;
     }
     
