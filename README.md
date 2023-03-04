@@ -1,10 +1,8 @@
 # FoundryVTT Domain character sheet for 5E
 
 Update March 4th:
-* Retrieve all domain data from JSON (apart from the Action Log)
+* LOAD and STORE all domain data in Actor FLAGS!!
 
 TODO:
-* retrieve Action Log from JSON
-* Save domain data to JSON
-* Add Defense Levels (-3 to +3) during Intrigue
-* text formatting (?)
+* migrate Powers, Action Log and Standings to FLAGS
+* add text formatting (?)
