@@ -155,9 +155,8 @@
                                 <input type="text" name="flags.mastertomnl-domain-sheet.power.name[]" value="{{power.name}}">
                             </h3>
                             <p>
-                                {{#if game.user.isGM}}<textarea name="flags.mastertomnl-domain-sheet.power.desc[]">{{/if}}
-                                {{power.desc}}
-                                {{#if game.user.isGM}}</textarea>{{/if}}
+                                {{#if @root.isGM}}<textarea name="flags.mastertomnl-domain-sheet.power.desc[]">{{power.desc}}</textarea>
+                                {{else}}{{power.desc}}{{/if}}
                             </p>
                             {{/each}}
                         </div>
@@ -167,12 +166,12 @@
                     <div class="flex-column">
                         <h2>
                             {{localize "mtds.Relations"}}
-                            {{#if game.user.isGM}}<a id="add-relation" class="add-btn">+</a>{{/if}}
+                            {{#if @root.isGM}}<a id="add-relation" class="add-btn">+</a>{{/if}}
                         </h2>
                         <ul class="domains">
                             {{#each actor.flags.mastertomnl-domain-sheet.relations as |relation|}}
                             <li class="">
-                                {{#if game.user.isGM}}
+                                {{#if @root.isGM}}
                                 <select class="relation-size {{relation.size}}" name="flags.mastertomnl-domain-sheet.relation.size[]">
                                     {{#select relation.size }}
                                     <option value="MAJOR">{{localize "mtds.Major"}}</option>
