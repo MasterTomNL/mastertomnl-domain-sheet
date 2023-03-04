@@ -1,57 +1,26 @@
 const modulePath = "modules/mastertomnl-domain-sheet";
-const folderPath = `${modulePath}/data`;
+const mName = "mastertomnl-domain-sheet";
 
 class MasterTomNLDomainSheet5E extends dnd5e.applications.actor.ActorSheet5eCharacter {
-    constructor(...args) {
-        super(...args);
-    }
-
     get template() {
         if (!game.user.isGM && this.actor.limited) return "systems/dnd5e/templates/actors/limited-sheet.hbs";
         return `${modulePath}/template/domain-sheet.html`;
     }
     
-    static cleanName(name) {
-        return name.replace(/[^\w\s]/gi, '').replace(/ /g, "-").toLowerCase();
-    }
-    
-    static getFileNameForActor(actor) {
-        return actor._id + ".json";
-    }
-    
-    async getDomain(actor) {
-        console.log(`MasterTomNLDomainSheet5E | Getting domain info from file for ${actor._id}`);
-        let filename = MasterTomNLDomainSheet5E.getFileNameForActor(actor);
-        
-        // https://foundryvtt.wiki/en/development/guides/localization/localizing-map-note-icons
-        try {
-            const response = await fetch(`${modulePath}/data/${filename}`);
-            const data = await response.json();
-            console.log(`MasterTomNLDomainSheet5E | Domain loaded: ${data.name}`);
-            return data;
-        } catch(error) {
-            console.error(`MasterTomNLDomainSheet5E | Failed to load domain ${filename}: ${error}`);
-            return null;
-        };
-    }
-    
-    static async saveDomain(actor, domain) {
-        let filename = MasterTomNLDomainSheet5E.getFileNameFromActor(actor);
-        let file = new File(JSON.stringify(Object.keys(domain)), filename, { type: blob.type, lastModified: new Date() });
-        
-        try {
-            return await FilePicker.upload(this.SOURCE, this.folderPath, file);
-        } catch (e) {
-            console.log(`MasterTomNLDomainSheet5E | Not able to upload file ${filename}`);
-            console.log(e);
-        }
-    }
-    
-    /* getting the data and domain data */
-    async getData() {
-        let data = await super.getData();
-        data["domain"] = await this.getDomain(this.actor);
-        return data;
+    async saveDomain(html) {
+        console.log(`MasterTomNLDomainSheet5E | Saving domain info to file for ${this.actor._id}`);
+        let filename = MasterTomNLDomainSheet5E.getFileNameForActor(this.actor);
+        let preFlix = "flags.mastertomnl-domain-sheet.";
+        this.actor.setFlag(mName, "commander", $(html).find('[name="'+preFlix+'commander"]').val());
+        this.actor.setFlag(mName, "size", $(html).find('[name="'+preFlix+'size"]').val());
+        this.actor.setFlag(mName, "powerdie", $(html).find('[name="'+preFlix+'powerdie"]').val());
+        this.actor.setFlag(mName, "diplomacy", $(html).find('[name="'+preFlix+'diplomacy"]').val());
+        this.actor.setFlag(mName, "espionage", $(html).find('[name="'+preFlix+'espionage"]').val());
+        this.actor.setFlag(mName, "lore", $(html).find('[name="'+preFlix+'lore"]').val());
+        this.actor.setFlag(mName, "operations", $(html).find('[name="'+preFlix+'operations"]').val());
+        this.actor.setFlag(mName, "communications", $(html).find('[name="'+preFlix+'communications"]').val());
+        this.actor.setFlag(mName, "resolve", $(html).find('[name="'+preFlix+'resolve"]').val());
+        this.actor.setFlag(mName, "resources", $(html).find('[name="'+preFlix+'resources"]').val());
     }
     
     static get defaultOptions() {
@@ -63,6 +32,17 @@ class MasterTomNLDomainSheet5E extends dnd5e.applications.actor.ActorSheet5eChar
             height: 900
         });
         return options;
+    }
+    
+    activateListeners(html) {
+        super.activateListeners(html);
+        // watch the change of the import-policy-selector checkboxes
+        $(html)
+            .find(['input', 'select'].join(","))
+            .on("change", (event) => {
+                this.saveDomain(html);
+            });
+        return true;
     }
 }
 

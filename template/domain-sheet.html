@@ -9,14 +9,14 @@
                     <input name="name" type="text" value="{{actor.name}}" placeholder="{{localize "mtds.DomainName"}}" />
                 </h1>
                 <h2 class="commander">
-                    <input name="system.details.background.value" type="text" value="{{system.details.background.value}}" placeholder="{{localize "mtds.DomainCommander" }}" />
+                    <input name="flags.mastertomnl-domain-sheet.commander" type="text" value="{{actor.flags.mastertomnl-domain-sheet.commander}}" placeholder="{{localize "mtds.DomainCommander"}}" />
                 </h2>
                 <!-- Size -->
                 <div class="flex-column">
                     <h4 class="attribute-name box-title">{{localize "mtds.Size"}}</h4>
                     <div class="attribute-value">
-                        <select class="actor-size" name="system.traits.size">
-                            {{#select system.traits.size}}
+                        <select class="actor-size" name="flags.mastertomnl-domain-sheet.size">
+                            {{#select actor.flags.mastertomnl-domain-sheet.size}}
                             <option value="1">1 - Tiny</option>
                             <option value="2">2 - Small</option>
                             <option value="3">3 - Medium</option>
@@ -31,13 +31,13 @@
                 <div class="flex-column">
                     <h4 class="box-title">{{localize "mtds.PowerDie"}}</h4>
                     <div class="attribute-value">
-                        <select class="actor-size" name="system.traits.di.value">
-                            {{#select system.traits.di.value }}
-                            <option value="1">d4</option>
-                            <option value="2">d6</option>
-                            <option value="3">d8</option>
-                            <option value="4">d12</option>
-                            <option value="5">d20</option>
+                        <select class="actor-size" name="flags.mastertomnl-domain-sheet.powerdie">
+                            {{#select actor.flags.mastertomnl-domain-sheet.powerdie }}
+                            <option value="d4">d4</option>
+                            <option value="d6">d6</option>
+                            <option value="d8">d8</option>
+                            <option value="d12">d12</option>
+                            <option value="d20">d20</option>
                             {{/select}}
                         </select>
                     </div>
@@ -61,7 +61,7 @@
                         <ul>
                             <li class="skill-box">
                                 <div class="skill-value">
-                                    <input name="system.abilities.cha.value" type="text" value="{{numberFormat system.abilities.cha.value decimals=0 sign=true}}" />
+                                    <input name="flags.mastertomnl-domain-sheet.diplomacy" type="text" value="{{numberFormat actor.flags.mastertomnl-domain-sheet.diplomacy decimals=0 sign=true}}" />
                                 </div>
                                 <div class="skill-desc">
                                     <h4 class="skill-name">{{localize "mtds.Diplomacy"}}</h4>
@@ -71,7 +71,7 @@
                             </li>
                             <li class="skill-box">
                                 <div class="skill-value">
-                                    <input name="system.abilities.dex.value" type="text" value="{{numberFormat system.abilities.dex.value decimals=0 sign=true}}" />
+                                    <input name="flags.mastertomnl-domain-sheet.espionage" type="text" value="{{numberFormat actor.flags.mastertomnl-domain-sheet.espionage decimals=0 sign=true}}" />
                                 </div>
                                 <div class="skill-desc">
                                     <h4 class="skill-name">{{localize "mtds.Espionage"}}</h4>
@@ -81,7 +81,7 @@
                             </li>
                             <li class="skill-box">
                                 <div class="skill-value">
-                                    <input name="system.abilities.wis.value" type="text" value="{{numberFormat system.abilities.wis.value decimals=0 sign=true}}" />
+                                    <input name="flags.mastertomnl-domain-sheet.lore" type="text" value="{{numberFormat actor.flags.mastertomnl-domain-sheet.lore decimals=0 sign=true}}" />
                                 </div>
                                 <div class="skill-desc">
                                     <h4 class="skill-name">{{localize "mtds.Lore"}}</h4>
@@ -91,7 +91,7 @@
                             </li>
                             <li class="skill-box">
                                 <div class="skill-value">
-                                    <input name="system.abilities.str.value" type="text" value="{{numberFormat system.abilities.str.value decimals=0 sign=true}}" />
+                                    <input name="flags.mastertomnl-domain-sheet.operations" type="text" value="{{numberFormat actor.flags.mastertomnl-domain-sheet.operations decimals=0 sign=true}}" />
                                 </div>
                                 <div class="skill-desc">
                                     <h4 class="skill-name">{{localize "mtds.Operations"}}</h4>
@@ -108,7 +108,7 @@
                         <ul>
                             <li class="skill-box">
                                 <div class="skill-value">
-                                    <input name="system.traits.ci.value" type="text" value="{{numberFormat system.traits.ci.value decimals=0}}" />
+                                    <input name="flags.mastertomnl-domain-sheet.communications" type="text" value="{{numberFormat actor.flags.mastertomnl-domain-sheet.communications decimals=0}}" />
                                 </div>
                                 <div class="skill-desc">
                                     <h4 class="skill-name">{{localize "mtds.Communications"}}</h4>
@@ -118,7 +118,7 @@
                             </li>
                             <li class="skill-box">
                                 <div class="skill-value">
-                                    <input name="system.traits.dv.value" type="text" value="{{numberFormat system.traits.dv.value decimals=0 }}" />
+                                    <input name="flags.mastertomnl-domain-sheet.resolve" type="text" value="{{numberFormat actor.flags.mastertomnl-domain-sheet.resolve decimals=0 }}" />
                                 </div>
                                 <div class="skill-desc">
                                     <h4 class="skill-name">{{localize "mtds.Resolve"}}</h4>
@@ -128,7 +128,7 @@
                             </li>
                             <li class="skill-box">
                                 <div class="skill-value">
-                                    <input name="system.traits.dr.value" type="text" value="{{numberFormat system.traits.dr.value decimals=0 }}" />
+                                    <input name="flags.mastertomnl-domain-sheet.resources" type="text" value="{{numberFormat actor.flags.mastertomnl-domain-sheet.resources decimals=0 }}" />
                                 </div>
                                 <div class="skill-desc">
                                     <h4 class="skill-name">{{localize "mtds.Resources"}}</h4>
@@ -150,12 +150,10 @@
                     <div class="flex-column">
                         <h2>{{localize "mtds.Powers"}}</h2>
                         <div class="powers">
-                            <h3>Healthcare</h3>
-                            <p>As a <b>bonus action</b>, take a <i>power die</i> from your domain's pool. You immediately spend and roll a number of your Hit Dice equal to the number on the power die, <b>regaining hit points</b> equal to the total of Hit Dice rolled.</p>
-                            <h3>Well Fed</h3>
-                            <p>As an <b>action</b>, make a <b>DC 13 Operations</b> test. On a success, all officers gain <b>inspiration</b>.</p>
-                            <h3>Business Connections</h3>
-                            <p>Once per intrigue, you can make a <b>DC 13 Diplomacy</b> test as a <b>bonus action</b>. On a success, all of your officers begin the next combat with their <b>hit point</b> maximum and current hit points <b>increased</b> by 5 x your Domain Size ({{numberFormat system.traits.size}}).</p>
+                            {{#each domain.powers as |power|}}
+                            <h3>{{power.name}}</h3>
+                            <p>{{power.desc}}</p>
+                            {{/each}}
                         </div>
                     </div>
                 
@@ -163,12 +161,13 @@
                     <div class="flex-column">
                         <h2>{{localize "mtds.Relations"}}</h2>
                         <ul class="domains">
+                            {{#each domain.relations as |relation|}}
                             <li class="">
-                                <span class="major">MAJOR</span>
-                                <span class="name">BM Vargas Vallakovich</span>
+                                <span class="{{relation.size}}">{{relation.size}}</span>
+                                <span class="name">{{relation.name}}</span>
                                 <span class="standings">
-                                    <select name="system.currency.pp.value" class="standings-{{ system.currency.pp.value }}">
-                                        {{#select system.currency.pp.value }}
+                                    <select name="relation.standings" class="standings-{{relation.standings}}">
+                                        {{#select relation.standings }}
                                         <option value="-2">{{localize "mtds.Hostile"}}</option>
                                         <option value="-1">{{localize "mtds.Suspicious"}}</option>
                                         <option value="0">{{localize "mtds.Neutral"}}</option>
@@ -178,66 +177,7 @@
                                     </select>
                                 </span>
                             </li>
-                            <li class="">
-                                <span class="minor">minor</span>
-                                <span class="name">Vistani</span>
-                                <span class="standings">
-                                    <select name="system.currency.gp.value" class="standings-{{ system.currency.gp.value }}">
-                                        {{#select system.currency.gp.value }}
-                                        <option value="-2">{{localize "mtds.Hostile"}}</option>
-                                        <option value="-1">{{localize "mtds.Suspicious"}}</option>
-                                        <option value="0">{{localize "mtds.Neutral"}}</option>
-                                        <option value="1">{{localize "mtds.Friendly"}}</option>
-                                        <option value="2">{{localize "mtds.Allied"}}</option>
-                                        {{/select}}
-                                    </select>
-                                </span>
-                            </li>
-                            <li class="">
-                                <span class="minor">minor</span>
-                                <span class="name">Church</span>
-                                <span class="standings">
-                                    <select name="system.currency.ep.value" class="standings-{{ system.currency.ep.value }}">
-                                        {{#select system.currency.ep.value }}
-                                        <option value="-2">{{localize "mtds.Hostile"}}</option>
-                                        <option value="-1">{{localize "mtds.Suspicious"}}</option>
-                                        <option value="0">{{localize "mtds.Neutral"}}</option>
-                                        <option value="1">{{localize "mtds.Friendly"}}</option>
-                                        <option value="2">{{localize "mtds.Allied"}}</option>
-                                        {{/select}}
-                                    </select>
-                                </span>
-                            </li>
-                            <li class="">
-                                <span class="minor">minor</span>
-                                <span class="name">Blue Water Inn</span>
-                                <span class="standings">
-                                    <select name="system.currency.sp.value" class="standings-{{ system.currency.sp.value }}">
-                                        {{#select system.currency.sp.value }}
-                                        <option value="-2">{{localize "mtds.Hostile"}}</option>
-                                        <option value="-1">{{localize "mtds.Suspicious"}}</option>
-                                        <option value="0">{{localize "mtds.Neutral"}}</option>
-                                        <option value="1">{{localize "mtds.Friendly"}}</option>
-                                        <option value="2">{{localize "mtds.Allied"}}</option>
-                                        {{/select}}
-                                    </select>
-                                </span>
-                            </li>
-                            <li class="">
-                                <span class="minor">minor</span>
-                                <span class="name">Assassins Cult</span>
-                                <span class="standings">
-                                    <select name="system.currency.cp.value" class="standings-{{ system.currency.cp.value }}">
-                                        {{#select system.currency.cp.value }}
-                                        <option value="-2">{{localize "mtds.Hostile"}}</option>
-                                        <option value="-1">{{localize "mtds.Suspicious"}}</option>
-                                        <option value="0">{{localize "mtds.Neutral"}}</option>
-                                        <option value="1">{{localize "mtds.Friendly"}}</option>
-                                        <option value="2">{{localize "mtds.Allied"}}</option>
-                                        {{/select}}
-                                    </select>
-                                </span>
-                            </li>
+                            {{/each}}
                         </ul>
                     </div>
                 </div>
