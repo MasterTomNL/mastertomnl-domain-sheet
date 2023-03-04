@@ -227,3 +227,6 @@ p {
     font-weight: bold;
     margin: 0.5rem 0 0 0;
 }
+.add-btn {
+    float: right;
+}

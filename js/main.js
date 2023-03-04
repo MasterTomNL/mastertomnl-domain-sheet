@@ -81,7 +81,24 @@ class MasterTomNLDomainSheet5E extends dnd5e.applications.actor.ActorSheet5eChar
             .on("change", (event) => {
                 this.saveDomain(html);
             });
+        
+        // add Relation
+        $(html)
+            .find('#add-relation')
+            .on("click", (event) => {
+                this.addRelation(html);
+            });
+
         return true;
+    }
+    
+    addRelation(html) {
+        console.log("MasterTomNL-Domain-Sheet-5e | Add a relation.");
+        // get existing relations
+        let relations = this.getRelations(html);
+        relations.push({"name": "", "standing": "", "size": ""});
+        this.actor.setFlag(mName, "relations", relations);
+        return ;
     }
 }
 
