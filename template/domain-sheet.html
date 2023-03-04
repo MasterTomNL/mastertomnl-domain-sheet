@@ -150,9 +150,11 @@
                     <div class="flex-column">
                         <h2>{{localize "mtds.Powers"}}</h2>
                         <div class="powers">
-                            {{#each domain.powers as |power|}}
-                            <h3>{{power.name}}</h3>
-                            <p>{{power.desc}}</p>
+                            {{#each actor.flags.mastertomnl-domain-sheet.powers as |power|}}
+                            <h3>
+                                <input type="text" name="flags.mastertomnl-domain-sheet.power.name[]" value="{{power.name}}">
+                            </h3>
+                            <p><textarea name="flags.mastertomnl-domain-sheet.power.desc[]">{{power.desc}}</textarea></p>
                             {{/each}}
                         </div>
                     </div>
@@ -161,21 +163,24 @@
                     <div class="flex-column">
                         <h2>{{localize "mtds.Relations"}}</h2>
                         <ul class="domains">
-                            {{#each domain.relations as |relation|}}
+                            {{#each actor.flags.mastertomnl-domain-sheet.relations as |relation|}}
                             <li class="">
-                                <span class="{{relation.size}}">{{relation.size}}</span>
-                                <span class="name">{{relation.name}}</span>
-                                <span class="standings">
-                                    <select name="relation.standings" class="standings-{{relation.standings}}">
-                                        {{#select relation.standings }}
-                                        <option value="-2">{{localize "mtds.Hostile"}}</option>
-                                        <option value="-1">{{localize "mtds.Suspicious"}}</option>
-                                        <option value="0">{{localize "mtds.Neutral"}}</option>
-                                        <option value="1">{{localize "mtds.Friendly"}}</option>
-                                        <option value="2">{{localize "mtds.Allied"}}</option>
-                                        {{/select}}
-                                    </select>
-                                </span>
+                                <select class="relation-size {{relation.size}}" name="flags.mastertomnl-domain-sheet.relation.size[]">
+                                    {{#select relation.size }}
+                                    <option value="MAJOR">{{localize "mtds.Major"}}</option>
+                                    <option value="minor">{{localize "mtds.Minor"}}</option>
+                                    {{/select}}
+                                </select>
+                                <input class="relation-name" type="text" name="flags.mastertomnl-domain-sheet.relation.name[]" value="{{relation.name}}" />
+                                <select class="relation-standings standings-{{relation.standing}}" name="flags.mastertomnl-domain-sheet.relation.standing[]">
+                                    {{#select relation.standing }}
+                                    <option value="Hostile">{{localize "mtds.Hostile"}}</option>
+                                    <option value="Suspicious">{{localize "mtds.Suspicious"}}</option>
+                                    <option value="Neutral">{{localize "mtds.Neutral"}}</option>
+                                    <option value="Friendly">{{localize "mtds.Friendly"}}</option>
+                                    <option value="Allied">{{localize "mtds.Allied"}}</option>
+                                    {{/select}}
+                                </select>
                             </li>
                             {{/each}}
                         </ul>
