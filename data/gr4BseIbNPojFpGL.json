@@ -1,10 +1,10 @@
 {
     "name": "The Crimson Caravan",
     "commander": "Lady Fiona Wachter",
-    "size": 1,
-    "powerdie": "d4",
+    "size": 2,
+    "powerdie": "d6",
     "skills": {
-        "Diplomacy": 0,
+        "Diplomacy": 3,
         "Espionage": 2,
         "Lore": -1,
         "Operations": 2
@@ -39,5 +39,36 @@
     }, {
         "name": "Spared no Expense",
         "description": "At the start of a battle, you can use a domain reaction to make a DC 14 Operations test. On a success, increase the levels of two of your domain’s defenses by 1."
+    }],
+    "powers": [{
+        "name": "Healthcare",
+        "desc": "As a bonus action, take a power die from your domain's pool. You immediately spend and roll a number of your Hit Dice equal to the number on the power die, regaining hit points equal to the total of Hit Dice rolled."
+    }, {
+        "name": "Well Fed",
+        "desc": "As an action, make a DC 13 Operations test. On a success, all officers gain inspiration."
+    }, {
+        "name": "Business Connections",
+        "desc": "Once per intrigue, you can make a DC 13 Diplomacy test as a bonus action. On a success, all of your officers begin the next combat with their hit point maximum and current hit points increased by 5 x your Domain Size (2)."
+    }],
+    "relations": [{
+        "name": "BM Vargas Vallakovich",
+        "size": "MAJOR",
+        "standings": -1
+    }, {
+        "name": "Vistani",
+        "size": "minor",
+        "standings": 0
+    }, {
+        "name": "Church",
+        "size": "minor",
+        "standings": 1
+    }, {
+        "name": "Blue Water Inn",
+        "size": "minor",
+        "standings": 2
+    }, {
+        "name": "Assassins Cult",
+        "size": "minor",
+        "standings": -1
     }]
 }

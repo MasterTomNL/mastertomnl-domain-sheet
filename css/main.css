@@ -184,12 +184,12 @@ p {
     margin-left: 5px;
 }
 
-.minor, .major {
+.minor, .MAJOR {
     position: relative;
     display: inline-block;
     width: 50px;
 }
-.major {
+.MAJOR {
     color: darkred;
 }
 .minor {

@@ -23,15 +23,16 @@ class MasterTomNLDomainSheet5E extends dnd5e.applications.actor.ActorSheet5eChar
         console.log(`MasterTomNLDomainSheet5E | Getting domain info from file for ${actor._id}`);
         let filename = MasterTomNLDomainSheet5E.getFileNameForActor(actor);
         
-        fetch(`${modulePath}/data/${filename}`)
-            .then(response => {
-                if (response.ok)
-                    return response.json();
-                console.error(`MasterTomNLDomainSheet5E | Failed to load domain ${filename}: [${response.status}] ${response.statusText}`);
-            })
-            .then(data => {
-                console.log(data);
-            });
+        // https://foundryvtt.wiki/en/development/guides/localization/localizing-map-note-icons
+        try {
+            const response = await fetch(`${modulePath}/data/${filename}`);
+            const data = await response.json();
+            console.log(`MasterTomNLDomainSheet5E | Domain loaded: ${data.name}`);
+            return data;
+        } catch(error) {
+            console.error(`MasterTomNLDomainSheet5E | Failed to load domain ${filename}: ${error}`);
+            return null;
+        };
     }
     
     static async saveDomain(actor, domain) {
@@ -46,9 +47,10 @@ class MasterTomNLDomainSheet5E extends dnd5e.applications.actor.ActorSheet5eChar
         }
     }
     
+    /* getting the data and domain data */
     async getData() {
-        const data = await super.getData();
-        //data["domain"] = await this.getDomain(this.actor); <-- this needs some work
+        let data = await super.getData();
+        data["domain"] = await this.getDomain(this.actor);
         return data;
     }
     
