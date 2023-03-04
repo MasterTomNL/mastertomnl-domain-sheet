@@ -25,10 +25,16 @@ class MasterTomNLDomainSheet5E extends dnd5e.applications.actor.ActorSheet5eChar
         //console.log(this.actor.flags);
     }
     
+    /*
+     * function to get a field value from our character sheet
+     */
     getFieldVal(html, name) {
         return $(html).find('[name="flags.mastertomnl-domain-sheet.'+name+'"]').val();
     }
     
+    /*
+     * function to get all powers from our character sheet
+     */
     getPowers(html) {
         let powers = [];
         $(html).find('[name="'+preFlix+'power.name[]"]').each(function(index) {
@@ -44,6 +50,9 @@ class MasterTomNLDomainSheet5E extends dnd5e.applications.actor.ActorSheet5eChar
         return powers;
     }
     
+    /*
+     * function to get all relations from our character sheet
+     */
     getRelations(html) {
         let relations = [];
         $(html).find('[name="'+preFlix+'relation.name[]"]').each(function(index) {
@@ -64,7 +73,7 @@ class MasterTomNLDomainSheet5E extends dnd5e.applications.actor.ActorSheet5eChar
     
     static get defaultOptions() {
         const options = super.defaultOptions;
-
+        // sheet window options
         mergeObject(options, {
             classes: ["dnd5e", "sheet", "actor", "character", "mastertomnl-domain-sheet"],
             width:750,
@@ -82,7 +91,7 @@ class MasterTomNLDomainSheet5E extends dnd5e.applications.actor.ActorSheet5eChar
                 this.saveDomain(html);
             });
         
-        // add Relation
+        // when you click on the + we will add a (blank) relation
         $(html)
             .find('#add-relation')
             .on("click", (event) => {
@@ -92,11 +101,16 @@ class MasterTomNLDomainSheet5E extends dnd5e.applications.actor.ActorSheet5eChar
         return true;
     }
     
+    /*
+     * function to add a relation
+     */
     addRelation(html) {
         console.log("MasterTomNL-Domain-Sheet-5e | Add a relation.");
         // get existing relations
         let relations = this.getRelations(html);
+        // add a (blank) relation
         relations.push({"name": "", "standing": "", "size": ""});
+        // save it to FLAGS
         this.actor.setFlag(mName, "relations", relations);
         return ;
     }
