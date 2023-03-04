@@ -161,7 +161,10 @@
                 
                     <!-- Relations -->
                     <div class="flex-column">
-                        <h2>{{localize "mtds.Relations"}}<a id="add-relation" class="add-btn">+</a></h2>
+                        <h2>
+                            {{localize "mtds.Relations"}}
+                            {{#if game.user.isGM}}<a id="add-relation" class="add-btn">+</a>{{/if}}
+                        </h2>
                         <ul class="domains">
                             {{#each actor.flags.mastertomnl-domain-sheet.relations as |relation|}}
                             <li class="">
