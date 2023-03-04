@@ -12,6 +12,8 @@
     "mtds.Relations": "Relations",
     "mtds.Hostile": "Hostile",
     "mtds.Suspicious": "Suspicious",
+    "mtds.Major": "MAJOR",
+    "mtds.Minor": "minor",
     "mtds.Neutral": "Neutral",
     "mtds.Friendly": "Friendly",
     "mtds.Allied": "Allied",
