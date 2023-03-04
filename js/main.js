@@ -82,6 +82,12 @@ class MasterTomNLDomainSheet5E extends dnd5e.applications.actor.ActorSheet5eChar
         return options;
     }
     
+    async getData(options) {
+        const context = await super.getData(options);
+        context.isGM = game.user.isGM;
+        return context;
+    }
+    
     activateListeners(html) {
         super.activateListeners(html);
         // watch the change of the import-policy-selector checkboxes
