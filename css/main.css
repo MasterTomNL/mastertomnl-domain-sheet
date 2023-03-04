@@ -184,7 +184,7 @@ p {
     margin-left: 5px;
 }
 
-.minor, .MAJOR {
+.relation-size {
     position: relative;
     display: inline-block;
     width: 50px;
@@ -198,27 +198,27 @@ p {
 .flex-column h3 {
     margin: 0.5rem 0 0 0;
 }
-.name {
+.relation-name {
     display: inline-block;
     position: relative;
-    width: 180px;
+    width: 180px !important;
 }
 
 /* standings */
-.standings--2 {
-    color: red;
+.standings-Hostile {
+    color: red !important;
 }
-.standings--1 {
-    color: #c16a01;
+.standings-Suspicious {
+    color: #c16a01 !important;
 }
-.standings-0 {
-    color: black;
+.standings-Neutral {
+    color: black !important;
 }
-.standings-1 {
-    color: #0a65c3;
+.standings-Friendly {
+    color: #0a65c3 !important;
 }
-.standings-2 {
-    color: #057603;
+.standings-Allied {
+    color: #057603 !important;
 }
 .navigation {
     padding-top: 0px;
