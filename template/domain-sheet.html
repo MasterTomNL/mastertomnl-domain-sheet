@@ -154,7 +154,11 @@
                             <h3>
                                 <input type="text" name="flags.mastertomnl-domain-sheet.power.name[]" value="{{power.name}}">
                             </h3>
-                            <p><textarea name="flags.mastertomnl-domain-sheet.power.desc[]">{{power.desc}}</textarea></p>
+                            <p>
+                                {{#if game.user.isGM}}<textarea name="flags.mastertomnl-domain-sheet.power.desc[]">{{/if}}
+                                {{power.desc}}
+                                {{#if game.user.isGM}}</textarea>{{/if}}
+                            </p>
                             {{/each}}
                         </div>
                     </div>
@@ -168,12 +172,16 @@
                         <ul class="domains">
                             {{#each actor.flags.mastertomnl-domain-sheet.relations as |relation|}}
                             <li class="">
+                                {{#if game.user.isGM}}
                                 <select class="relation-size {{relation.size}}" name="flags.mastertomnl-domain-sheet.relation.size[]">
                                     {{#select relation.size }}
                                     <option value="MAJOR">{{localize "mtds.Major"}}</option>
                                     <option value="minor">{{localize "mtds.Minor"}}</option>
                                     {{/select}}
                                 </select>
+                                {{else}}
+                                <span class="relation-size {{relation.size}}">{{relation.size}}</span>
+                                {{/if}}
                                 <input class="relation-name" type="text" name="flags.mastertomnl-domain-sheet.relation.name[]" value="{{relation.name}}" />
                                 <select class="relation-standings standings-{{relation.standing}}" name="flags.mastertomnl-domain-sheet.relation.standing[]">
                                     {{#select relation.standing }}
