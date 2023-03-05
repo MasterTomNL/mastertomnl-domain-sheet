@@ -200,19 +200,26 @@
             
             <div class="tab" data-group="primary" data-tab="action-log">
                 <div class="flex-row">
-                    <h2>{{localize "mtds.ActionLog"}}</h2>
+                    <h2>
+                        {{localize "mtds.ActionLog"}}
+                        {{#if @root.isGM}}<a id="add-action" class="add-btn">+</a>{{/if}}
+                    </h2>
                     <ol reversed class="action-log">
+                        {{#each actor.flags.mastertomnl-domain-sheet.actions as |action|}}
                         <li>
-                            <h3><u>Lore</u> to figure out if Henrik went to Krezk</h3>
-                            <p class="uses">Yvaine rolls an 11, add (Yvaine's) History (+6) and (Domain) Lore (-1) -> 11+6-1 = <b>16</b></p>
-                            <blockquote>...</blockquote>
+                            <h3>
+                                <input type="text" name="flags.mastertomnl-domain-sheet.action.title[]" value="{{action.title}}" />
+                            </h3>
+                            <p class="uses">
+                                <input type="text" name="flags.mastertomnl-domain-sheet.action.roll[]" value="{{action.roll}}" />
+                            </p>
+                            {{#if @root.isGM}}
+                            <textarea name="flags.mastertomnl-domain-sheet.action.result[]">{{action.result}}</textarea>
+                            {{else}}
+                            <blockquote>{{action.result}}</blockquote>
+                            {{/if}}
                         </li>
-                        <li>
-                            <h3><u>Espionage</u> to find the 4th minor organization in Vallaki</h3>
-                            <p class="uses">Albert rolls an 8, add (Albert's) Stealth (+4) and (Domain) Espionage (+2) -> 8+4+2 = <b>14</b></p>
-                            <blockquote>Our spies are roaming through the streets looking for signs of a rumoured fourth "minor" organization. When one of our members stumbles unto a very recent murder. He notices a shadowy figure leaving the scene. In pursuit of the suspected offender he barely escapes a well laid ambush. After some more questioning and investigating it's confirmed: there's an <b>Assassins Cult</b> active in Vallaki.
-                            </blockquote>
-                        </li>
+                        {{/each}}
                     </ol>
                 </div>
             </div>
