@@ -22,18 +22,18 @@ class MasterTomNLDomainSheet5E extends dnd5e.applications.actor.ActorSheet5eChar
         this.actor.setFlag(mName, "resources", this.getFieldVal(html, 'resources'));
         this.actor.setFlag(mName, "powers", this.getPowers(html));
         this.actor.setFlag(mName, "relations", this.getRelations(html));
-        //console.log(this.actor.flags);
+        this.actor.setFlag(mName, "actions", this.getActions(html));
     }
     
     /*
-     * function to get a field value from our character sheet
+     * get a field value from our character sheet
      */
     getFieldVal(html, name) {
         return $(html).find('[name="flags.mastertomnl-domain-sheet.'+name+'"]').val();
     }
     
     /*
-     * function to get all powers from our character sheet
+     * get all powers from our character sheet
      */
     getPowers(html) {
         let powers = [];
@@ -51,7 +51,7 @@ class MasterTomNLDomainSheet5E extends dnd5e.applications.actor.ActorSheet5eChar
     }
     
     /*
-     * function to get all relations from our character sheet
+     * get all relations from our character sheet
      */
     getRelations(html) {
         let relations = [];
@@ -64,11 +64,24 @@ class MasterTomNLDomainSheet5E extends dnd5e.applications.actor.ActorSheet5eChar
         $(html).find('[name="'+preFlix+'relation.size[]"]').each(function(index) {
             relations[index]["size"] = $(this).val();
         });
-        // make sure we have at least 3 relations...
-        for(var i = relations.length; i < 3; i++) {
-            relations[i] = {"name": "", "standing": "", "size": ""};
-        }
         return relations;
+    }
+    
+    /*
+     * get all actions from our character sheet
+     */
+    getActions(html) {
+        let actions = [];
+        $(html).find('[name="'+preFlix+'action.title[]"]').each(function(index) {
+            actions[index] = {"title": $(this).val()};
+        });
+        $(html).find('[name="'+preFlix+'action.roll[]"]').each(function(index) {
+            actions[index]["roll"] = $(this).val();
+        });
+        $(html).find('[name="'+preFlix+'action.result[]"]').each(function(index) {
+            actions[index]["result"] = $(this).val();
+        });
+        return actions;
     }
     
     static get defaultOptions() {
@@ -103,6 +116,12 @@ class MasterTomNLDomainSheet5E extends dnd5e.applications.actor.ActorSheet5eChar
             .on("click", (event) => {
                 this.addRelation(html);
             });
+        // when you click on the + we will add a (blank) action
+        $(html)
+            .find('#add-action')
+            .on("click", (event) => {
+                this.addAction(html);
+            });
 
         return true;
     }
@@ -118,6 +137,20 @@ class MasterTomNLDomainSheet5E extends dnd5e.applications.actor.ActorSheet5eChar
         relations.push({"name": "", "standing": "", "size": ""});
         // save it to FLAGS
         this.actor.setFlag(mName, "relations", relations);
+        return ;
+    }
+    
+    /*
+     * function to add an action
+     */
+    addAction(html) {
+        console.log("MasterTomNL-Domain-Sheet-5e | Add an action.");
+        // get existing actions
+        let actions = this.getActions(html);
+        // add a (blank) relation
+        actions.unshift({"title": "", "roll": "", "result": ""});
+        // save it to FLAGS
+        this.actor.setFlag(mName, "actions", actions);
         return ;
     }
 }
