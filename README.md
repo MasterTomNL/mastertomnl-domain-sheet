@@ -1,8 +1,9 @@
 # FoundryVTT Domain character sheet for 5E
 
-Update March 4th:
-* LOAD and STORE all domain stats in Actor FLAGS!!
+How to use:
+* Install the module through the Add-on Module interface.
+* Activate the module for your world.
+* Create a new Actor (Player) in Foundry and select the dnd5e.MasterTomNLDomainSheet5E.
 
-TODO:
-* migrate Action Log to FLAGS
+TODO
 * add text formatting (?)
