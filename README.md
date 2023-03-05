@@ -1,4 +1,4 @@
-# FoundryVTT Domain character sheet for 5E
+# FoundryVTT Domain character sheet for pre-Intrigue 5E
 
 How to use:
 * Install the module through the Add-on Module interface.
