@@ -187,7 +187,8 @@ p {
 .relation-size {
     position: relative;
     display: inline-block;
-    width: 50px;
+    width: 60px;
+    padding: 0px;
 }
 .MAJOR {
     color: darkred;
@@ -202,6 +203,9 @@ p {
     display: inline-block;
     position: relative;
     width: 180px !important;
+}
+.relation-standings {
+    padding: 0px;
 }
 
 /* standings */
@@ -229,4 +233,7 @@ p {
 }
 .add-btn {
     float: right;
+}
+.powers textarea {
+    padding: 0px;
 }
