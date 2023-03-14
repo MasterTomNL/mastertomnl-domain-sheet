@@ -18,6 +18,7 @@
         "mtds.PowerDelete": "Delete a Power",
     
     "mtds.Relations": "Relations",
+        "mtds.RelationName": "Name of the relation",
         "mtds.Hostile": "Hostile",
         "mtds.Suspicious": "Suspicious",
         "mtds.Neutral": "Neutral",
