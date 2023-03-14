@@ -12,6 +12,8 @@
         "mtds.Minor": "minor",
     
     "mtds.Powers": "Powers",
+        "mtds.PowerName": "Name of the power",
+        "mtds.PowerDesc": "Description of the power/feature.",
         "mtds.PowerAdd": "Add a Power",
         "mtds.PowerDelete": "Delete a Power",
     
