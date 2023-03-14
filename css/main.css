@@ -235,5 +235,41 @@ p {
     float: right;
 }
 .powers textarea {
-    padding: 0px;
+    padding: 0;
+}
+
+/* OFFICERS */
+.officers {
+    list-style: none;
+    padding: 0;
+    margin: 10px 0 0;
+}
+.officers li {
+    clear: both;
+}
+.officers h2 {
+    padding-top: 10px;
+}
+.officers img.profile {
+    width: 120px;
+    border: none;
+    left: 10px;
+}
+.img-col {
+    position: relative;
+    float: left;
+    width: 140px;
+}
+.data-col {
+    position: relative;
+    float: left;
+    width: 520px;
+}
+.tab {
+    height: 620px !important;
+    overflow-y: scroll;
+}
+.delete-officer, .delete-action {
+    color: red;
+}
 }
