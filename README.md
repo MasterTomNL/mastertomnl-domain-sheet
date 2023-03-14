@@ -5,5 +5,6 @@ How to use:
 * Activate the module for your world.
 * Create a new Actor (Player) in Foundry and select the dnd5e.MasterTomNLDomainSheet5E.
 
-TODO
-* add text formatting (?)
+# Changelog
+1.1 - Added scrollable tabs and delete buttons (also fixed a minor display bug)
+1.0 - Initial release
