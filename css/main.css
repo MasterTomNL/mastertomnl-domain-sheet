@@ -61,42 +61,42 @@
 	src: url('../fonts/SchoolsOfMagic.otf') format('opentype');
 }
 
-select {
+.mtds select {
     border: 0px;
     font-size: 16px !important;
     height: 32px !important;
     color: #3f414e;
     padding: 5px;
 }
-select:hover, select:focus {
+.mtds select:hover, .mtds select:focus {
     border: 1px solid #7a7971;
 }
-p {
+.mtds p {
     margin: 2px 0px;
 }
-.flex-body {
+.mtds .flex-body {
     position: relative;
     display: block;
     width: 700px;
     margin: 0 auto;
 }
-.flex-row {
+.mtds .flex-row {
     position: relative;
     display: block;
     clear: both;
     padding-top: 15px;
     width: 100%;
 }
-.flex-row:first-child {
+.mtds .flex-row:first-child {
     padding-top: 0px;
 }
-.header-block {
+.mtds .header-block {
     float: left;
     width: 520px;
     margin-top: 15px;
 }
 
-.sheet-header h1.charname input {
+.mtds .sheet-header h1.charname input {
     font-family: Roboto Condensed,Roboto,Helvetica,sans-serif;
     white-space: nowrap;
     overflow: hidden;
@@ -106,47 +106,47 @@ p {
     margin-left: 6px;
     margin-top: 0px;
 }
-.flex-profileimg {
+.mtds .flex-profileimg {
     position: relative;
     float: left;
     width: 180px;
 }
-.flex-profileimg img.profile {
+.mtds .flex-profileimg img.profile {
     border-radius: 3px;
     margin: 10px 0 10px 10px;
     height: 150px;
     margin: 10px;
 }
 
-.flex-column {
+.mtds .flex-column {
     position: relative;
     display: block;
     float: left;
     width: 50%;
 }
-.flex-column h2 {
+.mtds .flex-column h2 {
     margin-left: 5px;
 }
-.flex-column ul, .flex-row ul {
+.mtds .flex-column ul, .mtds .flex-row ul {
     list-style: none;
     padding: 0;
     margin: 0;
 }
-.skill-box, .defense-box {
+.mtds .skill-box, .mtds .defense-box {
     clear: both;
 }
-.skill-desc {
+.mtds .skill-desc {
     display: inline-block;
     padding: 5px;
     max-width: 280px;
 }
-.uses {
+.mtds .uses {
     font-style: italic;
 }
-.powers {
+.mtds .powers {
     padding: 0px 10px 0px 5px;
 }
-.box-title, .skill-name {
+.mtds .box-title, .mtds .skill-name {
     font-family: Roboto Condensed,Roboto,Helvetica,sans-serif;
     text-transform: uppercase;
     font-size: 16px;
@@ -156,7 +156,7 @@ p {
     font-weight: normal;
     margin-bottom: 5px;
 }
-.skill-value {
+.mtds .skill-value {
     font-family: Roboto Condensed,Roboto,Helvetica,sans-serif;
     color: #000;
     font-weight: bold;
@@ -171,7 +171,7 @@ p {
     margin: 5px;
     float: left;
 }
-.skill-value input {
+.mtds .skill-value input {
     font-family: Roboto Condensed,Roboto,Helvetica,sans-serif;
     color: #000;
     font-weight: bold;
@@ -180,96 +180,95 @@ p {
     height: 100%;
     padding: 0;
 }
-.flex-row .flex-column ul.domains {
+.mtds .flex-row .flex-column ul.domains {
     margin-left: 5px;
 }
 
-.relation-size {
+.mtds .relation-size {
     position: relative;
     display: inline-block;
     width: 60px;
     padding: 0px;
 }
-.MAJOR {
+.mtds .MAJOR {
     color: darkred;
 }
-.minor {
+.mtds .minor {
     color: #8f9197;
 }
-.flex-column h3 {
+.mtds .flex-column h3 {
     margin: 0.5rem 0 0 0;
 }
-.relation-name {
+.mtds .relation-name {
     display: inline-block;
     position: relative;
     width: 180px !important;
 }
-.relation-standings {
+.mtds .relation-standings {
     padding: 0px;
 }
 
 /* standings */
-.standings-Hostile {
+.mtds .standings-Hostile {
     color: red !important;
 }
-.standings-Suspicious {
+.mtds .standings-Suspicious {
     color: #c16a01 !important;
 }
-.standings-Neutral {
+.mtds .standings-Neutral {
     color: black !important;
 }
-.standings-Friendly {
+.mtds .standings-Friendly {
     color: #0a65c3 !important;
 }
-.standings-Allied {
+.mtds .standings-Allied {
     color: #057603 !important;
 }
-.navigation {
+.mtds .navigation {
     padding-top: 0px;
 }
-.action-log h3 {
+.mtds .action-log h3 {
     font-weight: bold;
     margin: 0.5rem 0 0 0;
 }
-.add-btn {
+.mtds .add-btn {
     float: right;
 }
-.powers textarea {
+.mtds .powers textarea {
     padding: 0;
 }
 
 /* OFFICERS */
-.officers {
+.mtds .officers {
     list-style: none;
     padding: 0;
     margin: 10px 0 0;
 }
-.officers li {
+.mtds .officers li {
     clear: both;
 }
-.officers h2 {
+.mtds .officers h2 {
     padding-top: 10px;
 }
-.officers img.profile {
+.mtds .officers img.profile {
     width: 120px;
     border: none;
     left: 10px;
 }
-.img-col {
+.mtds .img-col {
     position: relative;
     float: left;
     width: 140px;
 }
-.data-col {
+.mtds .data-col {
     position: relative;
     float: left;
     width: 520px;
 }
-.tab {
+.mtds .tab {
     height: 620px !important;
     overflow-y: scroll;
 }
-.delete-officer, .delete-action {
+.mtds .delete-officer, .mtds .delete-action {
     color: red;
-}
 }
