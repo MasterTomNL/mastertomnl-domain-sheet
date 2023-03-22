@@ -10,16 +10,17 @@ class MasterTomNLDomainSheet5E extends dnd5e.applications.actor.ActorSheet5eChar
     
     async saveDomain(html) {
         console.log(`MasterTomNLDomainSheet5E | Saving domain info to file for ${this.actor.name}`);
-        this.actor.setFlag(mName, "commander", this.getFieldVal(html, 'commander'));
+        /*this.actor.setFlag(mName, "commander", this.getFieldVal(html, 'commander'));
         this.actor.setFlag(mName, "size", this.getFieldVal(html, 'size'));
         this.actor.setFlag(mName, "powerdie", this.getFieldVal(html, 'powerdie'));
-        this.actor.setFlag(mName, "diplomacy", this.getFieldVal(html, 'diplomacy'));
-        this.actor.setFlag(mName, "espionage", this.getFieldVal(html, 'espionage'));
-        this.actor.setFlag(mName, "lore", this.getFieldVal(html, 'lore'));
-        this.actor.setFlag(mName, "operations", this.getFieldVal(html, 'operations'));
-        this.actor.setFlag(mName, "communications", this.getFieldVal(html, 'communications'));
-        this.actor.setFlag(mName, "resolve", this.getFieldVal(html, 'resolve'));
-        this.actor.setFlag(mName, "resources", this.getFieldVal(html, 'resources'));
+        this.actor.setFlag(mName, "diplomacy", this.getNumber(html, 'diplomacy'));
+        this.actor.setFlag(mName, "espionage", this.getNumber(html, 'espionage'));
+        this.actor.setFlag(mName, "lore", this.getNumber(html, 'lore'));
+        this.actor.setFlag(mName, "operations", this.getNumber(html, 'operations'));
+        this.actor.setFlag(mName, "communications", this.getNumber(html, 'communications'));
+        this.actor.setFlag(mName, "resolve", this.getNumber(html, 'resolve'));
+        this.actor.setFlag(mName, "resources", this.getNumber(html, 'resources'));
+        */
         this.actor.setFlag(mName, "powers", this.getPowers(html));
         this.actor.setFlag(mName, "relations", this.getRelations(html));
         this.actor.setFlag(mName, "actions", this.getActions(html));
@@ -32,6 +33,10 @@ class MasterTomNLDomainSheet5E extends dnd5e.applications.actor.ActorSheet5eChar
      */
     getFieldVal(html, name) {
         return $(html).find('[name="flags.mastertomnl-domain-sheet.'+name+'"]').val();
+    }
+    /* return FieldVal as a Number */
+    getNumber(html, name) {
+        return Number(this.getFieldVal(html, name));
     }
     
     /*
@@ -119,7 +124,7 @@ class MasterTomNLDomainSheet5E extends dnd5e.applications.actor.ActorSheet5eChar
         const options = super.defaultOptions;
         // sheet window options
         mergeObject(options, {
-            classes: ["dnd5e", "sheet", "actor", "character", "mastertomnl-domain-sheet"],
+            classes: ["dnd5e", "sheet", "actor", "character", "mtds"],
             width:750,
             height: 900
         });
@@ -129,6 +134,8 @@ class MasterTomNLDomainSheet5E extends dnd5e.applications.actor.ActorSheet5eChar
     async getData(options) {
         const context = await super.getData(options);
         context.isGM = game.user.isGM;
+        context.skillValues = [-1,0,1,2,2,3,3,3,4];
+        context.defenseValues = [10,11,12,13,14,14,15,15,16,16,17,17,17,18];
         return context;
     }
     
