@@ -136,6 +136,18 @@ class MasterTomNLDomainSheet5E extends dnd5e.applications.actor.ActorSheet5eChar
         context.isGM = game.user.isGM;
         context.skillValues = [-1,0,1,2,2,3,3,3,4];
         context.defenseValues = [10,11,12,13,14,14,15,15,16,16,17,17,17,18];
+        // set some default values
+        if (!context.actor.flags[mName]) {
+            context.actor.flags[mName] = {
+                'diplomacy':0,
+                'espionage':0,
+                'lore':0,
+                'operations':0,
+                'communications':0,
+                'resolve':0,
+                'resources':0
+            };
+        }
         return context;
     }
     
