@@ -8,8 +8,8 @@
     "mtds.PowerDie": "Power Die",
     
     "mtds.Size": "Size",
-        "mtds.Major": "MAJOR",
-        "mtds.Minor": "minor",
+        "mtds.Major": "Major",
+        "mtds.Minor": "Minor",
     
     "mtds.Powers": "Powers",
         "mtds.PowerName": "Name of the power",
@@ -24,6 +24,7 @@
         "mtds.Neutral": "Neutral",
         "mtds.Friendly": "Friendly",
         "mtds.Allied": "Allied",
+        "mtds.RelationDelete": "Delete",
     
     "mtds.Skills": "Skills",
         "mtds.Diplomacy": "Diplomacy",
@@ -55,7 +56,7 @@
         "mtds.OfficerTitle": "Officer Title",
         "mtds.OfficerBonus": "Officer bonus...",
         "mtds.OfficerAdd": "Add an Officer",
-        "mtds.OfficerDelete": "Delete this Officer",
+        "mtds.OfficerDelete": "Delete",
         "mtds.OfficerDeleteQuestion": "You are about to delete an Officer.",
 
     "mtds.ActionLog": "Action Log",
@@ -63,7 +64,7 @@
         "mtds.ActionRoll": "Player X rolled a Y, add Player's Skill modifier and Domain Skill bonus...",
         "mtds.ActionResult": "Action results...",
         "mtds.ActionAdd": "Add an Action",
-        "mtds.ActionDelete": "Delete this Action",
+        "mtds.ActionDelete": "Delete",
         "mtds.ActionDeleteQuestion": "You are about to delete an Action from the log.",
 
     "mtds.AreYouSure": "Are you sure?"

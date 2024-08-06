@@ -1,42 +1,23 @@
 {
-  "title": "MasterTomNL Domain Sheet for 5E",
-  "description": "This module adds an additional actor sheet template to display Domain related information for a Kingdoms &amp; Warfare (pre-)Intrigue.",
-  "authors": [
-    {
-      "name": "Tom van der Lek",
-      "flags": {}
-    }
-  ],
-  "compatibility": {
-    "minimum": "10",
-    "verified": "10.291"
-  },
-  "url": "https://github.com/mastertomnl/mastertomnl-domain-sheet",
-  "version": "1.3",
-  "languages": [
-    {
-      "lang": "en",
-      "name": "English",
-      "path": "lang/en.json",
-      "flags": {}
-    }
-  ],
-  "esmodules": [
-    "/js/main.js"
-  ],
-  "styles": [
-    "/css/main.css"
-  ],
-  "relationships": {
-    "systems": [
-      {
-        "id": "dnd5e",
-        "type": "system",
-        "compatibility": {}
-      }
-    ]
-  },
-  "manifest": "https://raw.githubusercontent.com/mastertomnl/mastertomnl-domain-sheet/master/module.json",
-  "download": "https://github.com/mastertomnl/mastertomnl-domain-sheet/archive/master.zip",
-  "id": "mastertomnl-domain-sheet"
+    "name": "mastertomnl-domain-sheet",
+    "title": "MasterTomNL Domain Sheet for 5E",
+    "description": "This module adds an additional actor sheet template to display Domain related information for a Kingdoms & Warfare (pre-)Intrigue.",
+    "authors": [{ "name": "Tom van der Lek" }],
+    "compatibility": {
+    	"minimum": "12",
+    	"verified": "12.330"
+    },
+    "url": "https://github.com/mastertomnl/mastertomnl-domain-sheet",
+    "version": "1.3",
+    "languages": [{
+        "lang": "en",
+        "name": "English",
+        "path": "lang/en.json",
+        "flags": {}
+    }],
+    "esmodules": ["/js/main.js"],
+    "styles": ["/css/main.css"],
+    "relationships": { "systems": [{ "id": "dnd5e", "type": "system" }] },
+    "manifest": "https://raw.githubusercontent.com/mastertomnl/mastertomnl-domain-sheet/master/module.json",
+    "download": "https://github.com/mastertomnl/mastertomnl-domain-sheet/archive/master.zip"
 }

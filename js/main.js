@@ -71,6 +71,7 @@ class MasterTomNLDomainSheet5E extends dnd5e.applications.actor.ActorSheet5eChar
         $(html).find('[name="'+preFlix+'relation.size[]"]').each(function(index) {
             relations[index]["size"] = $(this).val();
         });
+
         return relations;
     }
     
@@ -123,7 +124,7 @@ class MasterTomNLDomainSheet5E extends dnd5e.applications.actor.ActorSheet5eChar
     static get defaultOptions() {
         const options = super.defaultOptions;
         // sheet window options
-        mergeObject(options, {
+        foundry.utils.mergeObject(options, {
             classes: ["dnd5e", "sheet", "actor", "character", "mtds"],
             width:750,
             height: 900
@@ -192,6 +193,7 @@ class MasterTomNLDomainSheet5E extends dnd5e.applications.actor.ActorSheet5eChar
             .on("click", (event) => {
                 this.addOfficer(html);
             });
+
         // when you click on the delete button
         $(html)
             .find('a.delete-officer')
@@ -216,11 +218,11 @@ class MasterTomNLDomainSheet5E extends dnd5e.applications.actor.ActorSheet5eChar
         return ;
     }
     
-    deleteRelation(html, id) {
+    deleteRelation(html, name) {
         console.log("MasterTomNL-Domain-Sheet-5e | Delete a relation.");
         let relations = this.getRelations(html);
-        for (var i=0; i<relations.length; i++) {
-            if (relations[i].id == id) {
+        for (var i=0; i < relations.length; i++) {
+            if (relations[i].name == name) {
                 relations.splice(i, 1);
                 break;
             }

@@ -166,18 +166,20 @@
                         </h2>
                         <ul class="domains">
                             {{#each actor.flags.mastertomnl-domain-sheet.relations as |relation|}}
-                            <li class="">
+                            <li class="relation-list">
+                                <input class="relation-name" type="text" name="flags.mastertomnl-domain-sheet.relation.name[]" value="{{relation.name}}" placeholder="{{localize 'mtds.RelationName'}}" />
+                                <!--
                                 {{#if @root.isGM}}
                                 <select class="relation-size {{relation.size}}" name="flags.mastertomnl-domain-sheet.relation.size[]">
                                     {{#select relation.size }}
-                                    <option value="MAJOR">{{localize 'mtds.Major'}}</option>
-                                    <option value="minor">{{localize 'mtds.Minor'}}</option>
+                                    <option value="Major">{{localize 'mtds.Major'}}</option>
+                                    <option value="Minor">{{localize 'mtds.Minor'}}</option>
                                     {{/select}}
                                 </select>
                                 {{else}}
                                 <span class="relation-size {{relation.size}}">{{relation.size}}</span>
                                 {{/if}}
-                                <input class="relation-name" type="text" name="flags.mastertomnl-domain-sheet.relation.name[]" value="{{relation.name}}" placeholder="{{localize 'mtds.RelationName'}}" />
+                                -->
                                 <select class="relation-standings standings-{{relation.standing}}" name="flags.mastertomnl-domain-sheet.relation.standing[]">
                                     {{#select relation.standing }}
                                     <option value="Hostile">{{localize 'mtds.Hostile'}}</option>
@@ -187,6 +189,9 @@
                                     <option value="Allied">{{localize 'mtds.Allied'}}</option>
                                     {{/select}}
                                 </select>
+                                {{#if @root.isGM}}
+                                    <a class="delete-relation" data-relation-id="{{relation.name}}">{{localize 'mtds.RelationDelete'}}</a>
+                                {{/if}}
                             </li>
                             {{/each}}
                         </ul>
@@ -196,16 +201,18 @@
             
             <div class="tab" data-group="primary" data-tab="action-log">
                 <div class="flex-row">
-                    {{#if @root.isGM}}<a id="add-action">+ {{localize 'mtds.ActionAdd'}}</a>{{/if}}
+                    <a id="add-action">+ {{localize 'mtds.ActionAdd'}}</a>
                     <ol reversed class="action-log">
                         {{#each actor.flags.mastertomnl-domain-sheet.actions as |action|}}
-                        <li>
-                            <h2>
-                                <input type="text" name="flags.mastertomnl-domain-sheet.action.title[]" value="{{action.title}}" placeholder="{{localize 'mtds.ActionTitle'}}" />
-                            </h2>
-                            {{#if @root.isGM}}
-                                <a class="delete-action" data-officer-id="{{action.id}}">{{localize 'mtds.ActionDelete'}}</a>
-                            {{/if}}
+                        <li class="list-padding">
+                            <div class="title-container">
+                                <h2 class="title-action">
+                                    <input type="text" name="flags.mastertomnl-domain-sheet.action.title[]" value="{{action.title}}" placeholder="{{localize 'mtds.ActionTitle'}}" />
+                                </h2>
+                                {{#if @root.isGM}}
+                                    <a class="delete-action" data-officer-id="{{action.id}}">{{localize 'mtds.ActionDelete'}}</a>
+                                {{/if}}
+                            </div>
                             <p class="uses">
                                 <input type="text" name="flags.mastertomnl-domain-sheet.action.roll[]" value="{{action.roll}}" placeholder="{{localize 'mtds.ActionRoll'}}" />
                             </p>
@@ -225,14 +232,16 @@
                 {{#if @root.isGM}}<a id="add-officer">+ {{localize 'mtds.OfficerAdd'}}</a>{{/if}}
                 <ol class="officers">
                     {{#each actor.flags.mastertomnl-domain-sheet.officers as |officer|}}
-                    <li>
-                        <h2>
-                            <input type="text" name="flags.mastertomnl-domain-sheet.officer.title[]" value="{{officer.title}}" placeholder="{{localize 'mtds.OfficerTitle'}}" />
-                        </h2>
-                        {{#if @root.isGM}}
-                            <a class="delete-officer" data-officer-id="{{officer.id}}">{{localize 'mtds.OfficerDelete'}}</a>
-                        {{/if}}
-                        <div class="img-col">
+                    <li class="list-padding">
+                        <div class="title-container">
+                            <h2 class="title-action">
+                                <input type="text" name="flags.mastertomnl-domain-sheet.officer.title[]" value="{{officer.title}}" placeholder="{{localize 'mtds.OfficerTitle'}}" />
+                            </h2>
+                            {{#if @root.isGM}}
+                                <a class="delete-officer" data-officer-id="{{officer.id}}">{{localize 'mtds.OfficerDelete'}}</a>
+                            {{/if}}
+                        </div>
+                        <div class="img-col" id="change-officer-image">
                             <img class="profile" src="{{officer.img}}" title="{{officer.name}}" data-edit="officer.img[]" name="flags.mastertomnl-domain-sheet.officer.img[]"placeholder="{{localize 'mtds.OfficerImage'}}" />
                         </div>
                         <div class="data-col">
