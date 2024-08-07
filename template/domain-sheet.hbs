@@ -232,8 +232,22 @@
                 {{#if @root.isGM}}<a id="add-officer">+ {{localize 'mtds.OfficerAdd'}}</a>{{/if}}
                 <ol class="officers">
                     {{#each actor.flags.mastertomnl-domain-sheet.officers as |officer|}}
+                    {{#ifEquals officer.visible "show"}}
                     <li class="list-padding">
                         <div class="title-container">
+                            {{#if @root.isGM}}
+                                <input type="button" name="flags.mastertomnl-domain-sheet.officer.visible[]" value="{{officer.visible}}" class="officer-visibility" data-officer-id="{{officer.id}}"/>
+                                <!--
+                                <input
+                                class="toggle-officer"
+                                type="checkbox"
+                                name="flags.mastertomnl-domain-sheet.officer.visible[]"
+                                id="toggle-officer-visibility"
+                                data-officer-id="{{officer.id}}"
+                                {{#if officer.visible}}checked="checked"{{/if}}
+                                />
+                                -->
+                            {{/if}}
                             <h2 class="title-action">
                                 <input type="text" name="flags.mastertomnl-domain-sheet.officer.title[]" value="{{officer.title}}" placeholder="{{localize 'mtds.OfficerTitle'}}" />
                             </h2>
@@ -241,8 +255,8 @@
                                 <a class="delete-officer" data-officer-id="{{officer.id}}">{{localize 'mtds.OfficerDelete'}}</a>
                             {{/if}}
                         </div>
-                        <div class="img-col" id="change-officer-image">
-                            <img class="profile" src="{{officer.img}}" title="{{officer.name}}" data-edit="officer.img[]" name="flags.mastertomnl-domain-sheet.officer.img[]"placeholder="{{localize 'mtds.OfficerImage'}}" />
+                        <div class="img-col">
+                            <img id="change-officer-image" class="profile" data-officer-title="{{officer.title}}" src="{{officer.img}}" title="{{officer.name}}" data-edit="officer.img[]" name="flags.mastertomnl-domain-sheet.officer.img[]"placeholder="{{localize 'mtds.OfficerImage'}}" />
                         </div>
                         <div class="data-col">
                             <h3>
@@ -255,6 +269,7 @@
                             {{/if}}
                         </div>
                     </li>
+                    {{/ifEquals}}
                     {{/each}}
                 </ol>
             </div>

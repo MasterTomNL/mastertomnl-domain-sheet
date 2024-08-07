@@ -5,7 +5,7 @@ const preFlix = "flags.mastertomnl-domain-sheet.";
 class MasterTomNLDomainSheet5E extends dnd5e.applications.actor.ActorSheet5eCharacter {
     get template() {
         if (!game.user.isGM && this.actor.limited) return "systems/dnd5e/templates/actors/limited-sheet.hbs";
-        return `${modulePath}/template/domain-sheet.html`;
+        return `${modulePath}/template/domain-sheet.hbs`;
     }
     
     async saveDomain(html) {
@@ -102,14 +102,16 @@ class MasterTomNLDomainSheet5E extends dnd5e.applications.actor.ActorSheet5eChar
         let titles = $(html).find('[name="'+preFlix+'officer.title[]"]');
         let names = $(html).find('[name="'+preFlix+'officer.name[]"]');
         let bonuses = $(html).find('[name="'+preFlix+'officer.bonus[]"]');
+        let visibles = $(html).find('[name="'+preFlix+'officer.visible[]"]');
         
-        for (var i=0; i<images.length; i++) {
+        for (var i=0; i < images.length; i++) {
             officers.push({
                 "id": $(ids[i]).attr('data-officer-id'),
                 "img": $(images[i]).attr('src'),
                 "title": $(titles[i]).val(),
                 "name": $(names[i]).val(),
-                "bonus": $(bonuses[i]).val()
+                "bonus": $(bonuses[i]).val(),
+                "visible": $(visibles[i]).val() === "show" ? "show" : "hide"
             });
         }
         return officers;
@@ -158,6 +160,10 @@ class MasterTomNLDomainSheet5E extends dnd5e.applications.actor.ActorSheet5eChar
         $(html)
             .find(['input', 'select', 'textarea'].join(","))
             .on("change", (event) => {
+                if (event.target.id === 'toggle-officer-visibility') {
+                    return;
+                }
+                console.log(event)
                 this.saveDomain(html);
             });
         
@@ -199,6 +205,13 @@ class MasterTomNLDomainSheet5E extends dnd5e.applications.actor.ActorSheet5eChar
             .find('a.delete-officer')
             .on("click", (event) => {
                 this.deleteOfficer(html, event.target.getAttribute("data-officer-id"));
+            });
+
+        // When you click on the show/hide button in the officer tab
+        $(html)
+            .find('input.officer-visibility')
+            .on('click', (event) => {
+                this.toggleOfficer(html, event.target.getAttribute('data-officer-id'));
             });
 
         return true;
@@ -266,7 +279,14 @@ class MasterTomNLDomainSheet5E extends dnd5e.applications.actor.ActorSheet5eChar
         // get existing officers
         let officers = this.getOfficers(html);
         // add a (blank) officer
-        officers.push({"id": this.getUuid(), "img": "", "name": "", "title": "", "bonus": ""});
+        officers.push({
+            "id": this.getUuid(),
+            "img": "",
+            "name": "",
+            "title": "",
+            "bonus": "",
+            "visible": "hide"
+        });
         // save it to FLAGS
         this.actor.setFlag(mName, "officers", officers);
         return ;
@@ -284,6 +304,25 @@ class MasterTomNLDomainSheet5E extends dnd5e.applications.actor.ActorSheet5eChar
         this.actor.setFlag(mName, "officers", officers);
         return ;
     }
+
+    updateOfficer(html, title) {
+        console.log("MasterTomNL-Domain-Sheet-5e | Update an officer.");
+        let officers = this.getOfficers(html);
+        const officer = officers.find(o => o.title === title);
+        console.log(officer);
+        // this.actor.setFlag(mName, "officers", officers);
+    }
+
+    toggleOfficer(html, id) {
+        console.log("MasterTomNL-Domain-Sheet-5e | Toggle an officer.");
+        let officers = this.getOfficers(html);
+        for (var i=0; i < officers.length; i++) {
+            if (officers[i].id === id) {
+                officers[i].visible = officers[i].visible === "hide" ? "show" : "hide";
+            }
+        }
+        this.actor.setFlag(mName, "officers", officers);
+    }
 }
 
 Hooks.once('init', async function () {
@@ -291,5 +330,13 @@ Hooks.once('init', async function () {
     Actors.registerSheet('dnd5e', MasterTomNLDomainSheet5E, {
         types: ['character'],
         makeDefault: false
+    });
+
+    Handlebars.registerHelper('ifEquals', function(arg1, arg2, options) {
+        if (game.user.isGM) {
+            return true;
+        }
+
+        return (arg1 == arg2) ? options.fn(this) : options.inverse(this);
     });
 });
