@@ -114,10 +114,12 @@
 .mtds .flex-profileimg img.profile {
     border-radius: 3px;
     margin: 10px 0 10px 10px;
-    height: 150px;
+    height: 120px;
+    width: 120px;
     margin: 10px;
+    max-height: 150px;
+    max-width: 150px;
 }
-
 .mtds .flex-column {
     position: relative;
     display: block;
@@ -140,8 +142,13 @@
     padding: 5px;
     max-width: 280px;
 }
+.mtds .skill-name-container {
+    display: flex;
+}
 .mtds .uses {
     font-style: italic;
+    font-weight: 100;
+    font-size: small;
 }
 .mtds .powers {
     padding: 0px 10px 0px 5px;
@@ -160,14 +167,14 @@
     font-family: Roboto Condensed,Roboto,Helvetica,sans-serif;
     color: #000;
     font-weight: bold;
-    border: 3px solid #c53131;
+    border: 1px solid var(--color-scrollbar);
     border-radius: 3px;
     height: 40px;
     text-align: center;
     margin: 0px;
     font-size: 20px;
-    height: 60px;
-    width: 60px;
+    height: 50px;
+    width: 50px;
     margin: 5px;
     float: left;
 }
@@ -200,12 +207,25 @@
     margin: 0.5rem 0 0 0;
 }
 .mtds .relation-name {
-    display: inline-block;
+    float: left;
+    display: block;
     position: relative;
-    width: 180px !important;
+    height: 32px !important;
+    width: 200px !important;
 }
 .mtds .relation-standings {
     padding: 0px;
+}
+.mtds .delete-relation {
+    color: red;
+    float: right;
+    display: flex;
+    align-items: center;
+}
+.mtds .relation-list {
+    width: 100%;
+    position: relative;
+    display: flex;
 }
 
 /* standings */
@@ -239,26 +259,43 @@
 }
 
 /* OFFICERS */
-.mtds .officers {
+.mtds .officers, .mtds .features {
     list-style: none;
     padding: 0;
     margin: 10px 0 0;
 }
-.mtds .officers li {
+.mtds .officers li, .mtds .features li {
     clear: both;
 }
-.mtds .officers h2 {
+.mtds .officers h2, .mtds .features h2 {
     padding-top: 10px;
 }
-.mtds .officers img.profile {
-    width: 120px;
+.mtds .officers img.profile, .mtds .features img.profile {
+    position: relative;
+    z-index: 1;
     border: none;
-    left: 10px;
+    width: 120px;
+    height: 120px;
+    max-width: 150px;
+    max-height: 150px;
+    border-radius: 100px;
+}
+.mtds .border-frame {
+    border: none;
+    position: absolute;
+    height: 150px;
+    width: 150px;
+    z-index: 2;
+    pointer-events: none;
 }
 .mtds .img-col {
+    display: flex;
+    align-items: center;
     position: relative;
+    place-content: center;
     float: left;
-    width: 140px;
+    width: 150px;
+    height: 150px;
 }
 .mtds .data-col {
     position: relative;
@@ -266,9 +303,27 @@
     width: 520px;
 }
 .mtds .tab {
-    height: 620px !important;
+    height: 520px !important;
     overflow-y: scroll;
 }
-.mtds .delete-officer, .mtds .delete-action {
+.mtds .title-container {
+    display:flex;
+}
+.mtds .title-action {
+    float: right;
+    width: 100%;
+}
+.mtds .delete-officer, .mtds .delete-action, .mtds .delete-feature {
     color: red;
+    position: absolute;
+    right: 5px;
+    margin-top: 10px;
+}
+.mtds .list-padding {
+    margin-top: 20px;
+}
+.mtds .officer-visibility, .mtds .feature-visibility {
+    border: none;
+    background: none;
+    width: 50px;
 }

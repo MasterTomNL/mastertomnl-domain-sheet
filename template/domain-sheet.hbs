@@ -1,0 +1,292 @@
+<form class="{{cssClass}}" autocomplete="off">
+    <div class="flex-body">
+        <div class="flex-row">
+            <div class="flex-profileimg">
+                <img class="profile" src="{{actor.img}}" title="{{actor.name}}" data-edit="img" placeholder="{{localize 'mtds.OfficerImage'}}" />
+            </div>
+            <div class="flex-block header-block">
+                <h1 class="charname">
+                    <input name="name" type="text" value="{{actor.name}}" placeholder="{{localize 'mtds.DomainName'}}" />
+                </h1>
+                <h2 class="commander">
+                    <input name="flags.mastertomnl-domain-sheet.commander" type="text" value="{{actor.flags.mastertomnl-domain-sheet.commander}}" placeholder="{{localize 'mtds.DomainCommander'}}" />
+                </h2>
+                <!-- Size -->
+                <div class="flex-column">
+                    <h4 class="attribute-name box-title">{{localize 'mtds.Size'}}</h4>
+                    <div class="attribute-value">
+                        <select class="actor-size" name="flags.mastertomnl-domain-sheet.size">
+                            {{#select actor.flags.mastertomnl-domain-sheet.size}}
+                            <option value="1">1 - Tiny</option>
+                            <option value="2">2 - Small</option>
+                            <option value="3">3 - Medium</option>
+                            <option value="4">4 - Big</option>
+                            <option value="5">5 - Large</option>
+                            {{/select}}
+                        </select>
+                    </div>
+                </div>
+                
+                <!-- Power Die -->
+                <div class="flex-column">
+                    <h4 class="box-title">{{localize 'mtds.PowerDie'}}</h4>
+                    <div class="attribute-value">
+                        <select class="actor-size" name="flags.mastertomnl-domain-sheet.powerdie">
+                            {{#select actor.flags.mastertomnl-domain-sheet.powerdie }}
+                            <option value="d4">d4</option>
+                            <option value="d6">d6</option>
+                            <option value="d8">d8</option>
+                            <option value="d12">d12</option>
+                            <option value="d20">d20</option>
+                            {{/select}}
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="flex-row navigation">
+            <nav class="sheet-navigation tabs" data-group="primary">
+                <a class="item active" data-tab="stats">{{localize 'mtds.Stats'}}</a>
+                <a class="item" data-tab="action-log">{{localize 'mtds.ActionLog'}}</a>
+                <a class="item" data-tab="officers">{{localize 'mtds.Officers'}}</a>
+                <a class="item" data-tab="features">{{localize 'mtds.Features'}}</a>
+            </nav>
+        </div>
+
+        <section class="sheet-body">
+            <div class="tab" data-group="primary" data-tab="stats">
+                <div class="flex-row">
+                    <!-- SKILLS -->
+                    <div class="flex-column">
+                        <h2>{{localize 'mtds.Skills'}}</h2>
+                        <ul>
+                            <li class="skill-box">
+                                <div class="skill-value">
+                                    <input name="flags.mastertomnl-domain-sheet.diplomacy" type="text" value="{{numberFormat actor.flags.mastertomnl-domain-sheet.diplomacy decimals=0 sign=true}}" placeholder="0" />
+                                </div>
+                                <div class="skill-desc">
+                                    <h4 class="skill-name">{{localize 'mtds.Diplomacy'}}</h4>
+                                    <p class="uses">{{localize 'mtds.DiplomacyUses'}}</p>
+                                    <p>{{localize 'mtds.DiplomacyDesc'}}</p>
+                                </div>
+                            </li>
+                            <li class="skill-box">
+                                <div class="skill-value">
+                                    <input name="flags.mastertomnl-domain-sheet.espionage" type="text" value="{{numberFormat actor.flags.mastertomnl-domain-sheet.espionage decimals=0 sign=true}}" placeholder="0" />
+                                </div>
+                                <div class="skill-desc">
+                                    <h4 class="skill-name">{{localize 'mtds.Espionage'}}</h4>
+                                    <p class="uses">{{localize 'mtds.EspionageUses'}}</p>
+                                    <p>{{localize 'mtds.EspionageDesc'}}</p>
+                                </div>
+                            </li>
+                            <li class="skill-box">
+                                <div class="skill-value">
+                                    <input name="flags.mastertomnl-domain-sheet.lore" type="text" value="{{numberFormat actor.flags.mastertomnl-domain-sheet.lore decimals=0 sign=true}}" placeholder="0" />
+                                </div>
+                                <div class="skill-desc">
+                                    <h4 class="skill-name">{{localize 'mtds.Lore'}}</h4>
+                                    <p class="uses">{{localize 'mtds.LoreUses'}}</p>
+                                    <p>{{localize 'mtds.LoreDesc'}}</p>
+                                </div>
+                            </li>
+                            <li class="skill-box">
+                                <div class="skill-value">
+                                    <input name="flags.mastertomnl-domain-sheet.operations" type="text" value="{{numberFormat actor.flags.mastertomnl-domain-sheet.operations decimals=0 sign=true}}" placeholder="0" />
+                                </div>
+                                <div class="skill-desc">
+                                    <h4 class="skill-name">{{localize 'mtds.Operations'}}</h4>
+                                    <p class="uses">{{localize 'mtds.OperationsUses'}}</p>
+                                    <p>{{localize 'mtds.OperationsDesc'}}</p>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    
+                    <!-- DEFENSES -->
+                    <div class="flex-column">
+                        <h2>{{localize 'mtds.Defenses'}}</h2>
+                        <ul>
+                            <li class="skill-box">
+                                <div class="skill-value">
+                                    <input name="flags.mastertomnl-domain-sheet.communications" type="text" value="{{numberFormat actor.flags.mastertomnl-domain-sheet.communications decimals=0}}" />
+                                </div>
+                                <div class="skill-desc">
+                                    <h4 class="skill-name">{{localize 'mtds.Communications'}}</h4>
+                                    <p>{{localize 'mtds.CommunicationsDesc'}}</p>
+                                    <!--<p class="uses">{{localize 'mtds.CommunicationsUses'}}</p>-->
+                                </div>
+                            </li>
+                            <li class="skill-box">
+                                <div class="skill-value">
+                                    <input name="flags.mastertomnl-domain-sheet.resolve" type="text" value="{{numberFormat actor.flags.mastertomnl-domain-sheet.resolve decimals=0 }}" />
+                                </div>
+                                <div class="skill-desc">
+                                    <h4 class="skill-name">{{localize 'mtds.Resolve'}}</h4>
+                                    <p>{{localize 'mtds.ResolveDesc'}}</p>
+                                    <!--<p class="uses">{{localize 'mtds.ResolveUses'}}</p>-->
+                                </div>
+                            </li>
+                            <li class="skill-box">
+                                <div class="skill-value">
+                                    <input name="flags.mastertomnl-domain-sheet.resources" type="text" value="{{numberFormat actor.flags.mastertomnl-domain-sheet.resources decimals=0 }}" placeholder="0" />
+                                </div>
+                                <div class="skill-desc">
+                                    <h4 class="skill-name">{{localize 'mtds.Resources'}}</h4>
+                                    <p>{{localize 'mtds.ResourcesDesc'}}</p>
+                                    <!--<p class="uses">{{localize 'mtds.ResourcesUses'}}</p>-->
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="flex-row">
+                    <!-- Powers -->
+                    <div class="flex-column">
+                        <h2>{{localize 'mtds.Powers'}}</h2>
+                        <div class="powers">
+                            {{#each actor.flags.mastertomnl-domain-sheet.powers as |power|}}
+                            <h3>
+                                <input type="text" name="flags.mastertomnl-domain-sheet.power.name[]" value="{{power.name}}" placeholder="{{localize 'mtds.PowerName'}}">
+                            </h3>
+                            <p>
+                                {{#if @root.isGM}}<textarea name="flags.mastertomnl-domain-sheet.power.desc[]" placeholder="{{localize 'mtds.PowerDesc'}}">{{power.desc}}</textarea>
+                                {{else}}{{power.desc}}{{/if}}
+                            </p>
+                            {{/each}}
+                        </div>
+                    </div>
+                
+                    <!-- Relations -->
+                    <div class="flex-column">
+                        <h2>
+                            {{localize 'mtds.Relations'}}
+                            {{#if @root.isGM}}<a id="add-relation" class="add-btn">+</a>{{/if}}
+                        </h2>
+                        <ul class="domains">
+                            {{#each actor.flags.mastertomnl-domain-sheet.relations as |relation|}}
+                            <li class="relation-list">
+                                <input class="relation-name" type="text" name="flags.mastertomnl-domain-sheet.relation.name[]" value="{{relation.name}}" placeholder="{{localize 'mtds.RelationName'}}" />
+                                <select class="relation-standings standings-{{relation.standing}}" name="flags.mastertomnl-domain-sheet.relation.standing[]">
+                                    {{#select relation.standing }}
+                                    <option value="Hostile">{{localize 'mtds.Hostile'}}</option>
+                                    <option value="Suspicious">{{localize 'mtds.Suspicious'}}</option>
+                                    <option value="Neutral">{{localize 'mtds.Neutral'}}</option>
+                                    <option value="Friendly">{{localize 'mtds.Friendly'}}</option>
+                                    <option value="Allied">{{localize 'mtds.Allied'}}</option>
+                                    {{/select}}
+                                </select>
+                                {{#if @root.isGM}}
+                                    <a class="delete-relation" data-relation-id="{{relation.name}}">{{localize 'mtds.RelationDelete'}}</a>
+                                {{/if}}
+                            </li>
+                            {{/each}}
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="tab" data-group="primary" data-tab="action-log">
+                <div class="flex-row">
+                    <a id="add-action">+ {{localize 'mtds.ActionAdd'}}</a>
+                    <ol reversed class="action-log">
+                        {{#each actor.flags.mastertomnl-domain-sheet.actions as |action|}}
+                        <li class="list-padding">
+                            <div class="title-container">
+                                <h2 class="title-action">
+                                    <input type="text" name="flags.mastertomnl-domain-sheet.action.title[]" data-action-id="{{action.id}}" value="{{action.title}}" placeholder="{{localize 'mtds.ActionTitle'}}" />
+                                </h2>
+                                {{#if @root.isGM}}
+                                    <a class="delete-action" data-action-id="{{action.id}}">{{localize 'mtds.ActionDelete'}}</a>
+                                {{/if}}
+                            </div>
+                            <p class="uses">
+                                <input type="text" name="flags.mastertomnl-domain-sheet.action.roll[]" value="{{action.roll}}" placeholder="{{localize 'mtds.ActionRoll'}}" />
+                            </p>
+                            {{#if @root.isGM}}
+                            <textarea name="flags.mastertomnl-domain-sheet.action.result[]" placeholder="{{localize 'mtds.ActionResult'}}">{{action.result}}</textarea>
+                            {{else}}
+                            <blockquote>{{action.result}}</blockquote>
+                            {{/if}}
+                        </li>
+                        {{/each}}
+                    </ol>
+                </div>
+            </div>
+        
+            <!-- OFFICERS -->
+            <div class="tab" data-group="primary" data-tab="officers">
+                {{#if @root.isGM}}<a id="add-officer">+ {{localize 'mtds.OfficerAdd'}}</a>{{/if}}
+                <ol class="officers">
+                    {{#each actor.flags.mastertomnl-domain-sheet.officers as |officer|}}
+                    {{#ifEquals officer.visible "hide"}}
+                    <li class="list-padding">
+                        <div class="title-container">
+                            {{#if @root.isGM}}
+                                <input type="button" name="flags.mastertomnl-domain-sheet.officer.visible[]" value="{{officer.visible}}" class="officer-visibility" data-officer-id="{{officer.id}}"/>
+                            {{/if}}
+                            <h2 class="title-action">
+                                <input type="text" name="flags.mastertomnl-domain-sheet.officer.title[]" value="{{officer.title}}" placeholder="{{localize 'mtds.OfficerTitle'}}" />
+                            </h2>
+                            {{#if @root.isGM}}
+                                <a class="delete-officer" name="flags.mastertomnl-domain-sheet.officer.id[]" data-officer-id="{{officer.id}}">{{localize 'mtds.OfficerDelete'}}</a>
+                            {{/if}}
+                        </div>
+                        <div class="img-col">
+                            <img class="border-frame" src="portraits/hero-frame-border.png"/>
+                            <img id="change-officer-image" class="profile" src="{{officer.img}}" title="{{officer.name}}" data-edit="officer.img[]" name="flags.mastertomnl-domain-sheet.officer.img[]"placeholder="{{localize 'mtds.OfficerImage'}}" />
+                        </div>
+                        <div class="data-col">
+                            <h3>
+                                <input type="text" name="flags.mastertomnl-domain-sheet.officer.name[]" data-officer-id="{{officer.id}}" value="{{officer.name}}" placeholder="{{localize 'mtds.OfficerName'}}" />
+                            </h3>
+                            {{#if @root.isGM}}
+                            <textarea name="flags.mastertomnl-domain-sheet.officer.bonus[]" rows="5" placeholder="{{localize 'mtds.OfficerBonus'}}">{{officer.bonus}}</textarea>
+                            {{else}}
+                            <p>{{officer.bonus}}</p>
+                            {{/if}}
+                        </div>
+                    </li>
+                    {{/ifEquals}}
+                    {{/each}}
+                </ol>
+            </div>
+
+            <!-- FEATURES -->
+            <div class="tab" data-group="primary" data-tab="features">
+                {{#if @root.isGM}}<a id="add-feature">+ {{localize 'mtds.FeatureAdd'}}</a>{{/if}}
+                <ol class="features">
+                    {{#each actor.flags.mastertomnl-domain-sheet.features as |feature|}}
+                    {{#ifEquals feature.visible "hide"}}
+                    <li class="list-padding">
+                        <div class="title-container">
+                            {{#if @root.isGM}}
+                                <input type="button" name="flags.mastertomnl-domain-sheet.feature.visible[]" value="{{feature.visible}}" class="feature-visibility" data-feature-id="{{feature.id}}"/>
+                            {{/if}}
+                            <h2 class="title-action">
+                                <input type="text" name="flags.mastertomnl-domain-sheet.feature.title[]" value="{{feature.title}}" data-feature-id="{{feature.id}}" placeholder="{{localize 'mtds.FeatureTitle'}}" />
+                            </h2>
+                            {{#if @root.isGM}}
+                                <a class="delete-feature" name="flags.mastertomnl-domain-sheet.feature.id[]" data-feature-id="{{feature.id}}">{{localize 'mtds.FeatureDelete'}}</a>
+                            {{/if}}
+                        </div>
+                        <div class="img-col">
+                            <img id="change-feature-image" class="profile" src="{{feature.img}}" title="{{feature.name}}" data-edit="feature.img[]" name="flags.mastertomnl-domain-sheet.feature.img[]" placeholder="{{localize 'mtds.FeatureImage'}}" />
+                        </div>
+                        <div class="data-col">
+                            {{#if @root.isGM}}
+                            <textarea name="flags.mastertomnl-domain-sheet.feature.bonus[]" rows="5" placeholder="{{localize 'mtds.FeatureBonus'}}">{{feature.bonus}}</textarea>
+                            {{else}}
+                            <p>{{feature.bonus}}</p>
+                            {{/if}}
+                        </div>
+                    </li>
+                    {{/ifEquals}}
+                    {{/each}}
+                </ol>
+            </div>
+        </section>
+    </div>
+</form>
